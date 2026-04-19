@@ -1,8 +1,4 @@
 ﻿# Projeto de Monitoramento de Frequência - Frequency
- Aqui está um **README bem básico e direto**, ideal para sintetizar o seu projeto 👇
-
----
- Sistema de Monitoramento de Frequência Escolar
 
 ## 📌 Sobre o Projeto
 
