@@ -162,14 +162,14 @@ Para rodar este projeto baseado em PHP, você precisará de um ambiente de servi
 ### Passo 1: Clonar o Repositório
 Abra o seu terminal (ou Git Bash) dentro da pasta de servidores do XAMPP (geralmente `C:\xampp\htdocs\`) e clone este repositório:
 cd C:\xampp\htdocs
-git clone [https://github.com/seu-usuario/FrequenCy.git](https://github.com/seu-usuario/FrequenCy.git)
+git clone [https://github.com/guiguichuvaa/ProjetoMonitoramentoDeFrequencia.git]
 
 ---
 
 ### Passo 2: Configurar o Banco de Dados
 Abra o XAMPP Control Panel e inicie os módulos Apache e MySQL.
 Acesse no seu navegador: http://localhost/phpmyadmin/.
-Crie um novo banco de dados chamado frequency.
+Crie um novo banco de dados chamado sistema_frequencia.
 Importe o arquivo SQL do projeto (normalmente localizado na pasta /database ou na raiz com o nome database.sql ou similar) para dentro do banco criado.
 
 ---
@@ -180,13 +180,13 @@ PHP
 $host = "localhost";
 $user = "root";
 $password = "";
-$dbname = "frequency";
+$dbname = "sistema_frequencia";
 
 ---
 
 ### Passo 4: Acessar a Aplicação
 Abra o navegador e digite o endereço:
-http://localhost/FrequenCy/pg_inicial.php
+http://localhost/Frequency/pg_inicial.php
 
 
 ---
