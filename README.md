@@ -133,7 +133,7 @@ FrequenCy/
 │   ├── salvar_*.php         # Processamento de frequências realizadas
 │   └── buscar_*.php         # Consultas dinâmicas ao banco (SELECT)
 │
-├── reports/                 # Módulo de relatórios e estatísticas
+├── data/                 # Módulo de relatórios e estatísticas
 │   ├── fpdf/                # Biblioteca PHP para geração de documentos
 │   ├── gerar_relatorio_*.php # Emissão de relatórios em PDF (Geral e Individual)
 │   └── graficos_de_*.php    # Processamento de dados para os gráficos do Dashboard
