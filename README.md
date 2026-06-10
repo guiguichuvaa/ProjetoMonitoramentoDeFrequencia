@@ -1,4 +1,3 @@
-
 # 📊 FrequenCy — Sistema de Monitoramento de Frequência Escolar
 
 O **FrequenCy** é uma solução digital desenvolvida para otimizar, centralizar e organizar o controle de frequência escolar. O sistema substitui os métodos manuais e as planilhas fragmentadas por uma plataforma segura, ágil e estruturada, voltada para o uso de secretarias e coordenações escolares.
@@ -79,17 +78,72 @@ Para visualizar o fluxo visual e a interface responsiva do **FrequenCy**, confir
 
 ### 1. Painel Geral de Controle (Dashboard)
 Visão analítica contendo o total de alunos presentes, quantidade de faltas gerais e segmentadas por ano, além de alertas para o programa Pé-de-Meia.
-![Dashboard Geral](https://via.placeholder.com/800x450?text=Tela+de+Dados+Gerais+de+Frequencia)
+
+![Painel Geral de Controle](image_71939f.png)
 
 ### 2. Lançamento de Frequência por Turma
 Interface simplificada onde o coletor seleciona a turma e realiza a chamada de forma rápida.
-![Chamada por Turma](https://via.placeholder.com/800x450?text=Tela+de+Cadastro+de+Frequencia+por+Turma)
+
+![Chamada por Turma](image_719304.png)
 
 ### 3. Painel Individual do Aluno
 Histórico detalhado do estudante, exibindo a porcentagem de presença no mês e o status de assiduidade.
-![Painel do Aluno](https://via.placeholder.com/800x450?text=Tela+de+Visualizacao+de+Historico+do+Aluno)
+
+![Painel do Aluno](image_719341.png)
 
 ---
+
+## 📁 Estrutura do Projeto
+
+```text
+FrequenCy/
+│
+├── assets/                  # Arquivos estáticos e dependências visuais
+│   ├── css/                 # Estilos do sistema (incluindo style.css)
+│   ├── js/                  # Scripts e interações dinâmicas
+│   ├── img/                 # Imagens, logotipos e favicons
+│   └── fonts/               # Fontes customizadas utilizadas
+│
+├── config/                  # Configurações de sistema e banco de dados
+│   ├── conexao.php          # Credenciais de acesso ao MySQL
+│   └── helper.php           # Funções auxiliares globais
+│
+├── includes/                # Componentes globais de interface
+│   ├── navbar.php           # Menu de navegação do sistema
+│   ├── footer.php           # Rodapé padrão
+│   └── modal_frequencia_aulas.php
+│
+├── auth/                    # Controle de acesso e segurança
+│   ├── login.php / tela_login.php
+│   ├── logout.php
+│   └── verifica_login.php
+│
+├── pages/                   # Telas e interfaces com o usuário (Views)
+│   ├── pg_inicial.php       # Dashboard principal (Métricas gerais)
+│   ├── painel_aluno.php     # Visão individual do histórico do estudante
+│   ├── tela_cadastro_*.php  # Telas de formulário (aluno, atestado, atraso, etc.)
+│   ├── tela_edita_*.php     # Telas de modificação e atualização de dados
+│   ├── lista_*.php          # Exibição tabular de alunos, registros e ocorrências
+│   └── visualizar_*.php     # Visualização de atestados e dispensas
+│
+├── actions/                 # Processamento lógico e CRUD em PHP (Backend)
+│   ├── cadastro_*.php       # Scripts de inserção no banco (INSERT)
+│   ├── edita_*.php          # Scripts de atualização (UPDATE)
+│   ├── exclui_*.php         # Scripts de remoção lógica/física (DELETE)
+│   ├── salvar_*.php         # Processamento de frequências realizadas
+│   └── buscar_*.php         # Consultas dinâmicas ao banco (SELECT)
+│
+├── reports/                 # Módulo de relatórios e estatísticas
+│   ├── fpdf/                # Biblioteca PHP para geração de documentos
+│   ├── gerar_relatorio_*.php # Emissão de relatórios em PDF (Geral e Individual)
+│   └── graficos_de_*.php    # Processamento de dados para os gráficos do Dashboard
+│
+├── node_modules/            # Dependências locais de pacotes NPM
+├── composer.json            # Gerenciador de dependências PHP
+├── package.json             # Gerenciador de dependências e scripts do Node
+└── README.md                # Documentação oficial do projeto
+
+```
 
 ## 🚀 Passo a Passo para Instalação e Execução
 
