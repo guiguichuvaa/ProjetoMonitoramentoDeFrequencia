@@ -91,60 +91,69 @@ Histórico detalhado do estudante, exibindo a porcentagem de presença no mês e
 
 ![Painel do Aluno](image_719341.png)
 
----
-
 ## 📁 Estrutura do Projeto
 
+O projeto está organizado com diretórios dedicados a recursos estáticos e dependências, enquanto os arquivos funcionais (PHP) encontram-se na raiz, divididos por responsabilidade lógica. Abaixo está o mapeamento detalhado do sistema:
+
 ```text
-FrequenCy/
+Frequency/
 │
-├── assets/                  # Arquivos estáticos e dependências visuais
-│   ├── css/                 # Estilos do sistema (incluindo style.css)
-│   ├── js/                  # Scripts e interações dinâmicas
-│   ├── img/                 # Imagens, logotipos e favicons
-│   └── fonts/               # Fontes customizadas utilizadas
+├── Diretórios Principais
+│   ├── css/                     # Estilos visuais do sistema (ex: style.css)
+│   ├── database/                # Arquivos e scripts do banco de dados MySQL
+│   ├── fonts/ / font/           # Fontes tipográficas customizadas
+│   ├── img/ / favicon_io/       # Imagens, logotipos, ícones e assets visuais
+│   ├── js/                      # Scripts de interação e comportamento (JavaScript)
+│   └── node_modules/            # Dependências locais instaladas via NPM
 │
-├── config/                  # Configurações de sistema e banco de dados
-│   ├── conexao.php          # Credenciais de acesso ao MySQL
-│   └── helper.php           # Funções auxiliares globais
+├── Configuração e Autenticação
+│   ├── conexao.php              # Credenciais de conexão com o banco de dados
+│   ├── helper.php               # Funções e utilitários auxiliares globais
+│   ├── login.php / tela_login.php # Interface e lógica de autenticação
+│   ├── logout.php               # Script para encerramento seguro de sessão
+│   └── verifica_login.php       # Proteção de rotas e validação de sessão ativa
 │
-├── includes/                # Componentes globais de interface
-│   ├── navbar.php           # Menu de navegação do sistema
-│   ├── footer.php           # Rodapé padrão
-│   └── modal_frequencia_aulas.php
+├── Painéis Principais (Views)
+│   ├── pg_inicial.php           # Dashboard principal do sistema (Admin/Secretaria)
+│   ├── painel_aluno.php         # Visão individual e histórico do estudante
+│   ├── perfil_usuario.php       # Perfil do administrador
+│   ├── perfil_usuario_coletor.php # Perfil focado na visão do professor/coletor
+│   └── sobre.php / equipe.php   # Páginas institucionais e informações do projeto
 │
-├── auth/                    # Controle de acesso e segurança
-│   ├── login.php / tela_login.php
-│   ├── logout.php
-│   └── verifica_login.php
+├── Componentes de Interface
+│   ├── navbar.php               # Menu de navegação superior (Administrador)
+│   ├── navbar_coletor.php       # Menu de navegação específico para coletores
+│   ├── footer.php               # Rodapé padrão das páginas
+│   └── modal_*.php              # Componentes de janelas sobrepostas (Modais)
 │
-├── pages/                   # Telas e interfaces com o usuário (Views)
-│   ├── pg_inicial.php       # Dashboard principal (Métricas gerais)
-│   ├── painel_aluno.php     # Visão individual do histórico do estudante
-│   ├── tela_cadastro_*.php  # Telas de formulário (aluno, atestado, atraso, etc.)
-│   ├── tela_edita_*.php     # Telas de modificação e atualização de dados
-│   ├── lista_*.php          # Exibição tabular de alunos, registros e ocorrências
-│   └── visualizar_*.php     # Visualização de atestados e dispensas
+├── Gestão de Cadastros e Edições (Telas - Frontend)
+│   ├── tela_cadastro_*.php      # Formulários para criar alunos, atestados, atrasos, etc.
+│   └── tela_edita_*.php         # Interfaces para edição de dados já existentes
 │
-├── actions/                 # Processamento lógico e CRUD em PHP (Backend)
-│   ├── cadastro_*.php       # Scripts de inserção no banco (INSERT)
-│   ├── edita_*.php          # Scripts de atualização (UPDATE)
-│   ├── exclui_*.php         # Scripts de remoção lógica/física (DELETE)
-│   ├── salvar_*.php         # Processamento de frequências realizadas
-│   └── buscar_*.php         # Consultas dinâmicas ao banco (SELECT)
+├── Processamento Lógico (Ações - Backend)
+│   ├── cadastro_*.php           # Scripts que realizam INSERT no banco de dados
+│   ├── edita_*.php              # Scripts que realizam UPDATE no banco de dados
+│   ├── exclui_*.php             # Scripts que realizam DELETE no banco de dados
+│   ├── salvar_frequencia*.php   # Processamento das chamadas e assiduidade
+│   └── buscar_*.php / dados.php # Buscas assíncronas e requisições de dados específicos
 │
-├── data/                 # Módulo de relatórios e estatísticas
-│   ├── fpdf/                # Biblioteca PHP para geração de documentos
-│   ├── gerar_relatorio_*.php # Emissão de relatórios em PDF (Geral e Individual)
-│   └── graficos_de_*.php    # Processamento de dados para os gráficos do Dashboard
+├── Listagens e Visualizações (Tabelas)
+│   ├── lista_*.php              # Telas contendo as tabelas (alunos, usuários, faltas)
+│   ├── lista_frequencia_coletor.php # Lista de chamada adaptada para o coletor
+│   ├── listar_*.php             # Processamento do carregamento das listas
+│   └── visualizar_*.php         # Visualização de detalhes em texto de atestados e afins
 │
-├── node_modules/            # Dependências locais de pacotes NPM
-├── composer.json            # Gerenciador de dependências PHP
-├── package.json             # Gerenciador de dependências e scripts do Node
-└── README.md                # Documentação oficial do projeto
+├── Relatórios e Gráficos
+│   ├── fpdf.php                 # Biblioteca nativa para geração de documentos PDF
+│   ├── gerar_relatorio_*.php    # Emissão de documentos formais (geral e por aluno)
+│   └── graficos_de_*.php        # Renderização visual dos dados analíticos no Dashboard
+│
+└── Gerenciamento de Dependências
+    ├── composer.json            # Gestor de pacotes PHP
+    ├── package.json             # Gestor de pacotes NPM
+    └── README.md                # Documentação oficial do projeto
 
-```
-
+````
 ## 🚀 Passo a Passo para Instalação e Execução
 
 Siga as instruções abaixo para configurar o ambiente de desenvolvimento local e executar o projeto.
@@ -208,3 +217,6 @@ O projeto foi dividido utilizando papéis metodológicos claros para o desenvolv
 ### Licenças
 Este software foi gerado dentro do ecossistema educacional técnico da EEEP Manoel Mano. Como melhorias futuras,
 projeta-se a expansão de APIs para comunicação nativa com outras plataformas de gestão acadêmica.
+
+### Observações
+Esse software é um PROTÓTIPO do que pode ser um projeto muito maior, portanto, está cabível a erros, bugs, erros de cálculos e outros importunos.
