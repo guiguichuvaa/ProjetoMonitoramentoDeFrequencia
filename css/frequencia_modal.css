@@ -1,0 +1,52 @@
+:root {
+  --verde:#1f8a4c; --verde-claro:#e8f5ee;
+  --azul:#2563eb;  --roxo:#7c3aed;  --laranja:#f59e0b;
+  --vermelho:#dc2626; --cinza:#64748b; --borda:#e5e7eb;
+}
+
+#modal-frequencia { position:fixed; inset:0; background:rgba(15,23,42,.55);
+  display:none; align-items:center; justify-content:center; z-index:1000; }
+#modal-frequencia.aberto { display:flex; }
+
+.fc-card { background:#fff; border-radius:16px; width:min(960px,95vw);
+  max-height:92vh; overflow:auto; box-shadow:0 20px 60px rgba(0,0,0,.25); }
+
+.fc-header { background:linear-gradient(135deg,var(--verde),#16a34a);
+  color:#fff; padding:20px 24px; border-radius:16px 16px 0 0; }
+.fc-aluno-nome { font-size:1.25rem; font-weight:700; margin:0; }
+.fc-aluno-data { opacity:.9; font-size:.9rem; }
+
+.fc-contexto { display:flex; flex-wrap:wrap; gap:8px; padding:14px 24px;
+  background:var(--verde-claro); border-bottom:1px solid var(--borda); }
+.badge { padding:6px 12px; border-radius:999px; font-size:.8rem; font-weight:600; color:#fff; }
+.badge-atraso{background:var(--laranja);} .badge-dispensa{background:var(--roxo);}
+.badge-atestado{background:var(--azul);} .badge-falta{background:var(--vermelho);}
+
+.fc-turnos { padding:20px 24px; display:grid; gap:20px; }
+.fc-turno-titulo { font-size:.85rem; font-weight:700; color:var(--cinza);
+  text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px; }
+.fc-aulas-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px; }
+
+.aula-card { border:2px solid var(--borda); border-radius:12px; padding:12px;
+  transition:.2s; background:#fff; }
+.aula-card[data-status="P"]{border-color:var(--verde);}
+.aula-card[data-status="F"]{border-color:var(--vermelho);}
+.aula-card[data-status="J"]{border-color:var(--azul);}
+.aula-card[data-status="A"]{border-color:var(--laranja);}
+.aula-numero { font-weight:700; color:var(--cinza); font-size:.85rem; }
+.aula-status-label { font-weight:600; margin:4px 0 10px; }
+.aula-botoes { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; }
+.aula-btn { border:1px solid var(--borda); background:#f8fafc; padding:6px 0;
+  border-radius:6px; cursor:pointer; font-size:.75rem; font-weight:600; }
+.aula-btn.ativo { background:var(--verde); color:#fff; border-color:var(--verde); }
+
+.fc-footer { padding:16px 24px; border-top:1px solid var(--borda);
+  display:flex; justify-content:flex-end; gap:10px; }
+.btn-primary { background:var(--verde); color:#fff; border:none; padding:10px 20px;
+  border-radius:8px; font-weight:600; cursor:pointer; }
+.btn-secondary { background:#f1f5f9; color:#0f172a; border:none; padding:10px 20px;
+  border-radius:8px; font-weight:600; cursor:pointer; }
+
+.dia-presente{background:var(--verde-claro);} .dia-falta{background:#fee2e2;}
+.dia-atraso{background:#fef3c7;} .dia-dispensa{background:#ede9fe;}
+.dia-atestado{background:#dbeafe;}
